@@ -12,7 +12,7 @@ using namespace std;
 
 void enterArrayData(double*);
 void outputArrayData(double*);
-int sumArray();
+double sumArray(double*);
 
 int main()
 {
@@ -21,7 +21,8 @@ int main()
     arr = new double[SIZE];
     enterArrayData(arr);
     outputArrayData(arr);
-
+    double sum = sumArray(arr);
+    cout << "\nSum of values: " << sum;
 
     delete[] arr;
     return 0;
@@ -30,13 +31,12 @@ int main()
 void enterArrayData(double* arry)
 {
     double safety = 0;
+    cout << "Data entry for the array: \n";
     for(int i = 0; i < 5; i++) 
     {
-        cout << "Data entry for the array: \n";
         cout << "> Element #" << i << ": ";
         cin >> safety;
         arry[i] = safety;
-        cout << "\n";
     }
     cout << "Data entry complete.\n";
 }
@@ -48,4 +48,14 @@ void outputArrayData(double* arry)
     {
         cout << arry[i] << " ";
     }
+}
+
+double sumArray(double* arry)
+{
+    double total = 0;
+    for (int i = 0; i < 5; i++)
+    {
+        total += arry[i];
+    }
+    return total;
 }
